@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Local portfolio content editor for Niraj Regmi.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Portfolio Editor — Niraj Regmi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-page">
+  <header class="admin-header">
+    <div class="shell admin-header-inner">
+      <a class="brand admin-brand" href="index.html">NIRAJ<span>®</span></a>
+      <span class="admin-header-label">PORTFOLIO EDITOR</span>
+      <a class="admin-view-link" href="index.html#work">VIEW PORTFOLIO ↗</a>
+    </div>
+  </header>
+
+  <main class="shell admin-main">
+    <div class="section-kicker"><span>ADMIN</span> CONTENT MANAGEMENT</div>
+    <h1>Manage your work.</h1>
+    <p class="admin-intro">Add or edit projects that appear in the Selected Work section. Save a draft in this browser, preview it on the portfolio, and export your updated data when you are ready to publish.</p>
+
+    <div class="admin-notice">
+      <strong>How publishing works:</strong> This static-site editor does not publish to the internet. Use “Download portfolio-data.js,” replace the existing file in your site folder, then redeploy your portfolio. After publishing, discard this browser’s draft so it loads the new published data.
+    </div>
+
+    <div class="admin-layout">
+      <aside class="admin-panel" aria-label="Current work items">
+        <div class="admin-panel-heading">
+          <h2>Work on the site</h2>
+          <button class="admin-button-secondary" id="add-project" type="button">＋ Add work</button>
+        </div>
+        <div class="admin-project-list" id="admin-project-list"></div>
+        <button class="admin-reset" id="reset-projects" type="button">Discard local draft</button>
+      </aside>
+
+      <section class="admin-panel">
+        <form id="project-form">
+          <input id="project-id" name="id" type="hidden">
+          <h2 id="form-heading">Add work</h2>
+          <p class="admin-form-help">The title, category, summary, and detail fields show in your portfolio.</p>
+
+          <div class="admin-form-grid">
+            <label class="admin-field" for="project-title">
+              <span>Project title</span>
+              <input id="project-title" name="title" type="text" maxlength="100" required>
+            </label>
+            <label class="admin-field" for="project-category">
+              <span>Category / type</span>
+              <input id="project-category" name="category" type="text" maxlength="100" placeholder="e.g. STRUCTURAL ENGINEERING / COURSEWORK" required>
+            </label>
+            <label class="admin-field" for="project-mark">
+              <span>Short visual label</span>
+              <input id="project-mark" name="mark" type="text" maxlength="12" placeholder="e.g. H₂O">
+            </label>
+            <label class="admin-field" for="project-theme">
+              <span>Card visual style</span>
+              <select id="project-theme" name="theme">
+                <option value="water">Water</option>
+                <option value="traffic">Traffic</option>
+                <option value="compute">Computation</option>
+                <option value="drawing">Technical drawing</option>
+              </select>
+            </label>
+            <label class="admin-field admin-field-wide" for="project-description">
+              <span>Short summary</span>
+              <textarea id="project-description" name="description" rows="3" maxlength="500" required></textarea>
+            </label>
+            <label class="admin-field admin-field-wide" for="project-detail-description">
+              <span>Detailed overview</span>
+              <textarea id="project-detail-description" name="detailDescription" rows="4" maxlength="1200"></textarea>
+            </label>
+            <label class="admin-field" for="project-focus">
+              <span>Focus</span>
+              <input id="project-focus" name="focus" type="text" maxlength="120">
+            </label>
+            <label class="admin-field" for="project-method">
+              <span>Method</span>
+              <input id="project-method" name="method" type="text" maxlength="120">
+            </label>
+            <label class="admin-field admin-field-wide" for="project-approach">
+              <span>Approach</span>
+              <input id="project-approach" name="approach" type="text" maxlength="160">
+            </label>
+          </div>
+
+          <div class="admin-form-actions">
+            <button class="admin-button" type="submit">Save work</button>
+            <button class="admin-button-secondary" id="cancel-edit" type="button" hidden>Cancel</button>
+            <button class="admin-delete" id="delete-project" type="button" hidden>Delete work</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <section class="admin-publish">
+      <div>
+        <h2>Ready to publish?</h2>
+        <p>Save your changes first, then download the updated portfolio data file.</p>
+        <p class="admin-status" id="admin-status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="admin-publish-actions">
+        <a class="admin-preview-link" id="preview-portfolio" href="index.html#work">Preview portfolio ↗</a>
+        <button class="admin-button" id="export-projects" type="button">Download portfolio-data.js</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="portfolio-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
