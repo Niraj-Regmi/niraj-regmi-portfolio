@@ -4,7 +4,7 @@ window.PORTFOLIO_DATA = {
     portrait: "images/niraj-portrait.webp",
     field: "images/field-visit.jpg",
     campus: "images/campus.webp", // Example: "images/campus.jpg"
-    project: "", // Example: "images/project-detail.jpg"
+    project: "images/outdoor-portrait.jpg",
   },
   links: {
     linkedin: "https://www.linkedin.com/in/niraj-regmi-1oct2004/",
