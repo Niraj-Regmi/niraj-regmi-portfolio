@@ -3,7 +3,7 @@ window.PORTFOLIO_DATA = {
   photos: {
     portrait: "images/niraj-portrait.webp",
     field: "images/field-visit.jpg",
-    campus: "", // Example: "images/campus.jpg"
+    campus: "images/campus.webp", // Example: "images/campus.jpg"
     project: "", // Example: "images/project-detail.jpg"
   },
   links: {
