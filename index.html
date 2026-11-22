@@ -6,6 +6,16 @@
   <meta name="theme-color" content="#111827">
   <meta name="description" content="Niraj Regmi — Civil Engineering undergraduate at IOE Pulchowk Campus. Explore his studies, skills, and engineering interests.">
   <title>Niraj Regmi Portfolio</title>
+  <script>
+    try {
+      if (localStorage.getItem("niraj-portfolio-theme") === "dark") {
+        document.documentElement.dataset.theme = "dark";
+        document.querySelector('meta[name="theme-color"]').content = "#0a0b0d";
+      }
+    } catch (error) {
+      console.error("Could not read the saved color theme.", error);
+    }
+  </script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +23,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="shooting-stars" aria-hidden="true">
+    <span class="shooting-star"></span>
+    <span class="shooting-star shooting-star-secondary"></span>
+    <span class="shooting-star shooting-star-3"></span>
+    <span class="shooting-star shooting-star-4"></span>
+    <span class="shooting-star shooting-star-5"></span>
+    <span class="shooting-star shooting-star-6"></span>
+    <span class="shooting-star shooting-star-7"></span>
+    <span class="shooting-star shooting-star-8"></span>
+  </div>
   <header class="site-header">
     <nav class="nav shell" aria-label="Main navigation">
       <a class="brand" href="#top" aria-label="Niraj Regmi home">NIRAJ<span>®</span></a>
@@ -29,6 +49,10 @@
           <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
       </div>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"/></svg>
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+      </button>
     </nav>
   </header>
 
@@ -48,7 +72,6 @@
         </div>
         <div class="hero-location"><span>IOE · PULCHOWK CAMPUS</span><span>BE CIVIL · 7TH SEMESTER</span></div>
       </div>
-
       <a class="portrait-card" href="#contact" aria-label="Contact Niraj Regmi">
         <div class="portrait-frame" data-photo-frame="portrait">
           <img class="portrait-image" data-photo="portrait" alt="Portrait of Niraj Regmi">

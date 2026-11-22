@@ -1,5 +1,6 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
+const themeToggle = document.querySelector(".theme-toggle");
 const projectDialog = document.querySelector("#project-dialog");
 const projectList = document.querySelector("#project-list");
 const photoDialog = document.querySelector("#photo-dialog");
@@ -7,9 +8,57 @@ const photoDialogImage = document.querySelector("#photo-dialog-image");
 const photoOriginalLink = document.querySelector("#photo-original-link");
 const portfolioData = window.PORTFOLIO_DATA;
 const projectStorageKey = "niraj-portfolio-projects";
+const themeStorageKey = "niraj-portfolio-theme";
 const projectThemes = new Set(["water", "traffic", "compute", "drawing"]);
 
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+function updateThemeToggle() {
+  const isDark = document.documentElement.dataset.theme === "dark";
+  const label = `Switch to ${isDark ? "light" : "dark"} mode`;
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.setAttribute("title", label);
+  themeToggle.setAttribute("aria-pressed", String(isDark));
+  document.querySelector('meta[name="theme-color"]').content = isDark ? "#0a0b0d" : "#111827";
+}
+
+updateThemeToggle();
+themeToggle.addEventListener("click", () => {
+  const isDark = document.documentElement.dataset.theme !== "dark";
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const changeTheme = () => {
+    document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    updateThemeToggle();
+    try {
+      localStorage.setItem(themeStorageKey, isDark ? "dark" : "light");
+    } catch (error) {
+      console.error("Could not save the selected color theme.", error);
+    }
+  };
+
+  if (!reducedMotion && typeof document.startViewTransition === "function") {
+    const bounds = themeToggle.getBoundingClientRect();
+    const x = bounds.left + bounds.width / 2;
+    const y = bounds.top + bounds.height / 2;
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+    document.documentElement.style.setProperty("--theme-transition-x", `${x}px`);
+    document.documentElement.style.setProperty("--theme-transition-y", `${y}px`);
+    document.documentElement.style.setProperty("--theme-transition-radius", `${radius}px`);
+    document.startViewTransition(changeTheme);
+  } else {
+    changeTheme();
+  }
+
+  if (!reducedMotion) {
+    themeToggle.classList.remove("is-switching");
+    void themeToggle.offsetWidth;
+    themeToggle.classList.add("is-switching");
+    window.setTimeout(() => themeToggle.classList.remove("is-switching"), 600);
+  }
+});
 
 function loadPortfolioProjects() {
   const publishedProjects = Array.isArray(portfolioData.projects) ? portfolioData.projects : [];
