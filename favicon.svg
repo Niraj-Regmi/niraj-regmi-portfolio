@@ -1,4 +1,7 @@
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#111827"/>
-  <text x="32" y="43" fill="#c9f27c" font-family="Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" letter-spacing="-2">NR</text>
+  <rect width="64" height="64" rx="14" fill="#171A19"/>
+  <path d="M15 14h11l13 25V14h10v36H39L25 25v25H15z"
+        fill="#F5F5F0"/>
+  <rect x="46" y="8" width="7" height="7" rx="2" fill="#8BCB88"/>
 </svg>
