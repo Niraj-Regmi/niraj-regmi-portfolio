@@ -231,8 +231,7 @@ button { font: inherit; }
 .link-slot strong { color: #e8ebf0; }
 .link-slot[aria-disabled="true"] { cursor: default; }
 .link-slot:not([aria-disabled="true"]):hover { border-color: var(--lime); background: #202e40; }
-.contact-arrow { position: absolute; top: 50%; right: 21px; display: flex; color: var(--lime); transform: translateY(-50%); }
-.contact-arrow .ui-icon { width: 20px; height: 20px; }
+.contact-arrow { position: absolute; top: 50%; right: 21px; color: var(--lime); font: 20px/1 var(--display); transform: translateY(-50%); }
 .contact-bottom { display: flex; justify-content: space-between; margin-top: 54px; padding-top: 17px; border-top: 1px solid #3a4655; color: #aeb9c8; font-size: 9px; }
 .contact-bottom a:hover { color: var(--lime); }
 .footer { display: flex; min-height: 78px; align-items: center; justify-content: space-between; gap: 15px; color: #7b8592; font-size: 12px; }
