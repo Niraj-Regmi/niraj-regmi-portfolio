@@ -174,11 +174,6 @@ document.querySelectorAll("[data-photo]").forEach((image) => {
         }
       });
     }
-
-    if (image.dataset.photo === "portrait") {
-      document.querySelector("[data-photo-caption-title]").textContent = "Niraj Regmi";
-      document.querySelector("[data-photo-caption-description]").textContent = "Civil Engineering Student";
-    }
   }, { once: true });
 
   image.addEventListener("error", () => {

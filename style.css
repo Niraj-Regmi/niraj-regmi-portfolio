@@ -91,17 +91,13 @@ button { font: inherit; }
 .portrait-art svg { width: min(76%, 290px); height: 100%; }
 .portrait-frame.has-photo .portrait-art { background: none; }
 .portrait-frame.has-photo .portrait-art svg { visibility: hidden; }
-.portrait-caption { position: relative; z-index: 1; }
-.portrait-caption { display: flex; min-height: 82px; align-items: center; gap: 14px; margin-top: auto; padding: 12px 19px; background: #202b3d; }
+.portrait-caption { position: relative; z-index: 1; display: flex; min-height: 82px; align-items: center; gap: 14px; margin-top: auto; padding: 12px 19px; background: #202b3d; }
 .portrait-frame.has-photo .portrait-caption { background: linear-gradient(transparent, rgba(17, 24, 39, .9)); }
-.portrait-initials, .portrait-avatar { width: 42px; height: 42px; display: grid; flex: 0 0 auto; place-items: center; border: 1px solid #9fa9f8; border-radius: 50%; }
-.portrait-initials { color: var(--lime); font: 600 14px var(--display); }
-.portrait-avatar { display: none; object-fit: cover; object-position: center top; }
-.portrait-avatar.is-loaded { display: block; }
-.portrait-avatar.is-loaded + .portrait-initials { display: none; }
 .portrait-caption div { display: flex; flex: 1; flex-direction: column; }
 .portrait-caption strong { font-size: 15px; }
 .portrait-caption small { color: #b4bdcc; font-size: 12px; }
+.portrait-avatar { width: 42px; height: 42px; display: none; flex: 0 0 auto; border: 1px solid #9fa9f8; border-radius: 50%; object-fit: cover; object-position: center top; }
+.portrait-avatar.is-loaded { display: block; }
 .caption-arrow { color: var(--lime); font-size: 18px; transition: transform .2s ease; }
 .portrait-card:hover .caption-arrow { transform: translate(2px, -2px); }
 .portrait-footer { height: var(--portrait-gutter); }
